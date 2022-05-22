@@ -6,6 +6,7 @@ import { catchErrors } from "../../utils";
 import { Link } from "react-router-dom";
 import { ReactComponent as InfoIcon } from "../../icons/info.svg";
 import { formatDuration } from "../../utils";
+import {default as Loader} from "../Loader";
 
 const TopTracks = () => {
     const [topTracks, setTopTracks] = useState(null);
@@ -15,14 +16,12 @@ const TopTracks = () => {
       const fetchData = async () => {
         const userTopTracks = await getTopTracks(10, activeRange);
         setTopTracks(userTopTracks.data);
-        console.log(userTopTracks.data);
       };
 
-      console.log(activeRange);
       catchErrors(fetchData());
     }, [activeRange]);
 
-    if (!topTracks) return;
+    if (!topTracks) return <Loader/>;
   return (
     <section className="top_tracks_section">
       <div className="top_header">

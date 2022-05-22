@@ -12,12 +12,14 @@ import {
   Link,
   useLocation,
 } from "react-router-dom";
+
 import Navbar from "./components/Navbar/Navbar";
 import Login from "./components/Login/Login";
 import Profile from "./components/Profile/Profile";
 import TopArtists from "./components/TopArtists/TopArtists";
 import TopTracks from "./components/TopTracks/TopTracks";
 import Recent from "./components/Recent/Recent";
+import Playlists from "./components/Playlists/Playlists";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -38,14 +40,14 @@ function App() {
   
   return (
     <div className="App">
-      <div className="App-container">{!token ? <Login /> : <Section />}</div>
+      {!token ? <Login /> : <Section />}
     </div>
   );
 }
 
 const Section = ({profile}) => {
   return (
-    <>
+    <div className="App-container">
       <Router>
         <ScrollToTop />
         <Navbar />
@@ -54,14 +56,14 @@ const Section = ({profile}) => {
           <Route path="/top-tracks" element={<TopTracks />} />
           <Route path="/recent" element={<Recent />} />
           <Route path="/playlists/:id" element={<h1>Playlist</h1>} />
-          <Route path="/playlists" element={<h1>Playlists</h1>} />
+          <Route path="/playlists" element={<Playlists />} />
           <Route
             path="/"
             element={<Profile logout={logout} profile={profile} />}
           />
         </Routes>
       </Router>
-    </>
+    </div>
   );
 };
 

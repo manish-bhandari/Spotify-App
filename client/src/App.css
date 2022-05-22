@@ -23,6 +23,9 @@
   color: #61dafb;
 }
 
+a{
+  transition: all 0.25s cubic-bezier(0.3, 0, 0.4, 1) 0s;
+}
 
 @media (max-width: 700px){
   .App-container{

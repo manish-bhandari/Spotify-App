@@ -13,6 +13,7 @@ import { logout } from "../../spotify";
 import { formatDuration } from "../../utils";
 import { Link } from "react-router-dom";
 import {ReactComponent as InfoIcon} from '../../icons/info.svg';
+import Loader from "../Loader";
 
 const Profile = () => {
   const [profile, setProfile] = useState(null);
@@ -39,15 +40,14 @@ const Profile = () => {
       const userTopTracks = await getTopTracks(10);
       setTopTracks(userTopTracks.data);
 
-      console.log(userTopTracks.data)
-
     };
     
 
     catchErrors(fetchData());
   }, []);
 
-  if (!profile || !playlists || !following || !topArtists || !topTracks) return;
+  if (!profile || !playlists || !following || !topArtists || !topTracks) 
+    return <Loader/>
 
   return (
     <section className="profile">

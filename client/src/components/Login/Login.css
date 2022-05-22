@@ -1,0 +1,23 @@
+
+.login_section{
+    width: 100%;
+    margin: 0px auto;
+    /* padding: 80px; */
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.login_section a{
+    text-decoration: none;
+}
+
+.login_section h1{
+    color: white;
+    font-size: 32px;
+    margin: 0;
+}

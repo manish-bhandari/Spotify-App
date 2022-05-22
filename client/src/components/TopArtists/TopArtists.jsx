@@ -5,6 +5,7 @@ import { catchErrors } from "../../utils";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as InfoIcon } from "../../icons/info.svg";
+import Loader from "../Loader";
 
 const TopArtists = () => {
   const [topArtists, setTopArtists] = useState(null);
@@ -17,11 +18,10 @@ const TopArtists = () => {
       console.log(userTopArtists.data);
     };
 
-    console.log(activeRange)
     catchErrors(fetchData());
   }, [activeRange]);
 
-  if (!topArtists) return;
+  if (!topArtists) return <Loader />;
 
   return (
     <section className="top_artists_section">

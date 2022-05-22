@@ -6,6 +6,7 @@ import { catchErrors } from '../../utils';
 import { ReactComponent as InfoIcon } from "../../icons/info.svg";
 import { formatDuration } from '../../utils';
 import { Link } from 'react-router-dom';
+import Loader from '../Loader';
 
 const Recent = () => {
       const [recentTracks, setRecentTracks] = useState(null);
@@ -14,13 +15,12 @@ const Recent = () => {
         const fetchData = async () => {
           const userRecentTracks = await getRecentlyPlayedTracks();
           setRecentTracks(userRecentTracks.data);
-          console.log(userRecentTracks.data);
         };
 
         catchErrors(fetchData());
       }, []);
 
-      if (!recentTracks) return;
+      if (!recentTracks) return <Loader />;
 
   return (
     <section className="recent_section">
