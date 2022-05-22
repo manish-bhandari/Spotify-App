@@ -13,6 +13,10 @@
     justify-content: space-between;
 }
 
+.top_header h1{
+    font-size: 25px;
+}
+
 .top_range{
     display: flex;
     align-items: center;

@@ -143,5 +143,9 @@ export const getFollowedArtists = (limit = 50) => {
 export const getTopArtists = (limit = 10,range="long_term") => 
   axios.get(`/me/top/artists?limit=${limit}&time_range=${range}`);
 
+
 export const getTopTracks = (limit = 10, range="long_term") =>
   axios.get(`/me/top/tracks?limit=${limit}&time_range=${range}`);
+
+
+export const getRecentlyPlayedTracks = () => axios.get("/me/player/recently-played");

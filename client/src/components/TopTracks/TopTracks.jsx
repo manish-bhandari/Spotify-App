@@ -73,6 +73,8 @@ const TopTracks = () => {
                         {i !== track.artists.length - 1 && ", "}
                       </span>
                     ))}
+                    {"  ·  "}
+                    <span>{track.album.name}</span>
                   </span>
                 </div>
                 <span className="track_time">
