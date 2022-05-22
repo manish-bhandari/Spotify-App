@@ -87,7 +87,7 @@ const Profile = () => {
           <div className="preview_list_container">
             <ul className="artists_list preview_list">
               {topArtists.items.map((artist, idx) => (
-                <Link to={`artist/${artist.id}`} className="artist">
+                <Link to={`artist/${artist.id}`} className="artist" key={idx}>
                   <div className="preview_image_wrapper">
                     <img
                       className="preview_image"

@@ -9,8 +9,12 @@ import { ReactComponent as RecentIcon } from "../../icons/recent.svg";
 import { ReactComponent as TopTracksIcon } from "../../icons/top-tracks.svg";
 import { ReactComponent as GithubIcon } from "../../icons/github.svg";
 
-const Navbar = ({ logout }) => {
-  const [active,setActive] = useState('profile');
+const Navbar = () => {
+  let tab = window.location.pathname.substring(1,);
+  if (!tab)
+    tab = "profile"
+    
+  const [active,setActive] = useState(tab);
 
   return (
     <nav>
