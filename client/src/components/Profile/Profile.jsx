@@ -40,6 +40,7 @@ const Profile = () => {
       const userTopTracks = await getTopTracks(10);
       setTopTracks(userTopTracks.data);
 
+      console.log(userProfile.data)
     };
     
 
@@ -56,7 +57,9 @@ const Profile = () => {
           {profile.images.length && profile.images[0].url && (
             <img src={profile.images[0].url} alt="Avatar" />
           )}
-          <h1>{profile.display_name}</h1>
+          <a href={`https://open.spotify.com/user/${profile.id}`} target="_blank">
+            <h1>{profile.display_name}</h1>
+          </a>
         </div>
         <div className="stats">
           <div className="stat_element">
@@ -80,7 +83,7 @@ const Profile = () => {
         <div className="top_artists">
           <div className="top_preview_header">
             <h3>Top Artists of All Time</h3>
-            <Link to="/top-artists"  className="spotify_button">
+            <Link to="/top-artists" className="spotify_button">
               SEE MORE
             </Link>
           </div>

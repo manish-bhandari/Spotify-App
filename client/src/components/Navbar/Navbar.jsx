@@ -18,9 +18,9 @@ const Navbar = () => {
 
   return (
     <nav>
-      <div className="logo">
+      <Link to="/" onClick={() => setActive("profile")} className="logo">
         <img src="/spotify.svg" alt="" />
-      </div>
+      </Link>
       <ul className="nav_items">
         <li className={active == "profile" ? "active" : ""}>
           <Link to="/" onClick={() => setActive("profile")}>
@@ -53,9 +53,13 @@ const Navbar = () => {
           </Link>
         </li>
       </ul>
-      <div className="github">
-        <GithubIcon/>
-      </div>
+      <a
+        href="https://github.com/manish-bhandari/Spotify-App"
+        target ="_blank"
+        className="github"
+      >
+        <GithubIcon />
+      </a>
     </nav>
   );
 };

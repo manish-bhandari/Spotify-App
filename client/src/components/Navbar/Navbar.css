@@ -11,6 +11,7 @@ nav {
   color: #9b9b9b;
   box-shadow: rgb(0 0 0 / 30%) 0px 0px 10px;
   z-index: 99;
+  align-items: center;
 }
 
 .logo {
@@ -19,6 +20,13 @@ nav {
 
 .github {
   margin-bottom: 30px;
+    cursor: pointer;
+    width: fit-content;
+
+}
+
+.github:hover svg{
+  fill:var(--green);
 }
 
 .logo img {
@@ -29,6 +37,7 @@ nav {
 .nav_items {
   list-style: none;
   padding: 0;
+  width: 100%;
 }
 
 .nav_items li a {

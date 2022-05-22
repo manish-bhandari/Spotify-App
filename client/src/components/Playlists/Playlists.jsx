@@ -13,7 +13,6 @@ const Playlists = () => {
     const fetchData = async () => {
       const userPlaylists = await getCurrentUserPlaylists();
       setPlaylists(userPlaylists.data);
-      console.log(userPlaylists.data);
     };
 
     catchErrors(fetchData());
