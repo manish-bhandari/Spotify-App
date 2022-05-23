@@ -22,9 +22,6 @@
   margin: 5px 0;
 }
 
-.profile_container h1{
-  /* width: fit-content; */
-}
 
 .profile_container h1:hover{
   color: var(--green);
