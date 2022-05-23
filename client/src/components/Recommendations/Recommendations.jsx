@@ -84,7 +84,7 @@ const Recommendations = () => {
     setRecPlaylistId(data.id);
   };
 
-  if (!recommendations) return;
+  if (!recommendations) return <Loader />;
 
   return (
     <section className="recommendations_section">

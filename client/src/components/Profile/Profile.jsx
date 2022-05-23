@@ -48,7 +48,7 @@ const Profile = () => {
   }, []);
 
   if (!profile || !playlists || !following || !topArtists || !topTracks) 
-    return;
+    return <Loader/>;
 
   return (
     <section className="profile">

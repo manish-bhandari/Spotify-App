@@ -45,7 +45,7 @@ const Playlist = () => {
       catchErrors(fetchData());
     }, [playlist]);
 
-    if (!playlist || !tracks || !audioFeatures) return <h1>loading</h1>;
+    if (!playlist || !tracks || !audioFeatures) return <Loader />;
     
   return (
     <section className="playlist_section">
@@ -56,10 +56,10 @@ const Playlist = () => {
         <p className="playlist_num_tracks">{playlist.tracks.total} tracks</p>
         <Link className="green_button" to={`/recommendations/${playlist.id}`}>GET RECOMMENDATIONS</Link>
         <div className="audio_features">
-          {/* <FeatureChart
+          <FeatureChart
             features={audioFeatures.audio_features}
             type="horizontalBar"
-          /> */}
+          />
         </div>
       </div>
       <div className="playlist_right">

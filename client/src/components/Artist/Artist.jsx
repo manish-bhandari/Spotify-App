@@ -19,8 +19,8 @@ const Artist = () => {
     catchErrors(fetchData());
   }, []);
 
-  if (!artist) return <h1>loading</h1>;
-  // if (!artist) return <Loader />;
+  
+  if (!artist) return <Loader />;
   return (
     <section className="artist_container">
       <div className="artist_img">

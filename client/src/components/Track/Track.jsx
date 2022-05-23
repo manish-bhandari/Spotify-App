@@ -26,7 +26,7 @@ const Track = () => {
     catchErrors(fetchData());
   }, [trackID]);
 
-  if (!track || !audioAnalysis || !audioFeatures) return;
+  if (!track || !audioAnalysis || !audioFeatures) return <Loader />;
   return (
     <section className="track_section">
       <div className="track_data_wrapper">

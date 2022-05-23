@@ -20,7 +20,7 @@ const TopArtists = () => {
     catchErrors(fetchData());
   }, [activeRange]);
 
-  if (!topArtists) return;
+  if (!topArtists) return <Loader />;
 
   return (
     <section className="top_artists_section">

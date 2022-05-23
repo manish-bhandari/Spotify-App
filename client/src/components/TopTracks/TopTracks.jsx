@@ -23,7 +23,7 @@ const TopTracks = () => {
       catchErrors(fetchData());
     }, [activeRange]);
 
-    if (!topTracks) return <h1>loading</h1>;
+    if (!topTracks) return <Loader/>;
   return (
     <section className="top_tracks_section">
       <div className="top_header">
