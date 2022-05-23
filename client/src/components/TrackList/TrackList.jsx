@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as InfoIcon } from "../../icons/info.svg";
 import { formatDuration } from "../../utils";
+import './TrackList.css'
 
 const TrackList = ({tracks}) => {
   return (

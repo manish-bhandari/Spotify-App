@@ -17,8 +17,6 @@ const TopTracks = () => {
       const fetchData = async () => {
         const userTopTracks = await getTopTracks(20, activeRange);
         setTopTracks(userTopTracks.data);
-        console.log(userTopTracks.data);
-
       };
 
 

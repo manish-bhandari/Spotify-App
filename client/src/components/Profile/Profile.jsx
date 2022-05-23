@@ -14,6 +14,7 @@ import { formatDuration } from "../../utils";
 import { Link } from "react-router-dom";
 import {ReactComponent as InfoIcon} from '../../icons/info.svg';
 import Loader from "../Loader";
+import TrackList from "../TrackList/TrackList";
 
 const Profile = () => {
   const [profile, setProfile] = useState(null);
@@ -40,7 +41,6 @@ const Profile = () => {
       const userTopTracks = await getTopTracks(10);
       setTopTracks(userTopTracks.data);
 
-      console.log(userProfile.data)
     };
     
 
@@ -115,41 +115,7 @@ const Profile = () => {
               SEE MORE
             </Link>
           </div>
-          <div className="preview_list_container">
-            <ul className="preview_list">
-              {topTracks.items.map((track, idx) => (
-                <Link to={`/track/${track.id}`} key={idx}>
-                  <div className="preview_image_wrapper">
-                    <img
-                      className="preview_image track"
-                      src={track.album.images[0].url}
-                      alt=""
-                    />
-                    <div className="info_svg">
-                      <InfoIcon />
-                    </div>
-                  </div>
-
-                  <div className="track_info">
-                    <div className="track_details">
-                      <p>{track.name}</p>
-                      <span className="track_artists">
-                        {track.artists.map((artist, i) => (
-                          <span key={i}>
-                            {artist.name}
-                            {i !== track.artists.length - 1 && ", "}
-                          </span>
-                        ))}
-                      </span>
-                    </div>
-                    <span className="track_time">
-                      {formatDuration(track.duration_ms)}
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </ul>
-          </div>
+          <TrackList tracks={topTracks.items}/>
         </div>
       </div>
     </section>

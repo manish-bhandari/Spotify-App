@@ -22,8 +22,6 @@ const Playlist = () => {
     const fetchData = async () => {
         const playlistInfo = await getPlaylistInfo(id);
         setPlaylist(playlistInfo.data);
-        // console.log(playlistInfo.data);
-
         let playlist_tracks = []
         const tracks_arr = playlistInfo.data.tracks.items;
         for (var i = 0; i < tracks_arr.length;i++){
@@ -42,7 +40,6 @@ const Playlist = () => {
             playlist.tracks.items
           );
           setAudioFeatures(data);
-          console.log(data);
         }
       };
       catchErrors(fetchData());
@@ -57,7 +54,7 @@ const Playlist = () => {
         <h1>{playlist.name}</h1>
         <p className="playlist_owner">By {playlist.owner.display_name}</p>
         <p className="playlist_num_tracks">{playlist.tracks.total} tracks</p>
-        <Link className="green_button" to={`/recommendations/${playlist.id}`}>GET RECCOMMENDATIONS</Link>
+        <Link className="green_button" to={`/recommendations/${playlist.id}`}>GET RECOMMENDATIONS</Link>
         <div className="audio_features">
           <FeatureChart
             features={audioFeatures.audio_features}

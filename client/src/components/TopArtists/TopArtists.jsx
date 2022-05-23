@@ -15,7 +15,6 @@ const TopArtists = () => {
     const fetchData = async () => {
       const userTopArtists = await getTopArtists(20, activeRange);
       setTopArtists(userTopArtists.data);
-      console.log(userTopArtists.data);
     };
 
     catchErrors(fetchData());

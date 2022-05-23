@@ -40,7 +40,7 @@ app.get("/login", (req, res) => {
   res.cookie(stateKey, state);
 
   const scope =
-    "user-read-private user-read-email user-follow-read user-top-read user-read-recently-played";
+    "user-read-private user-read-email user-follow-read user-top-read user-read-recently-played playlist-modify-public playlist-modify-private";
 
   const queryParams = querystring.stringify({
     client_id: CLIENT_ID,

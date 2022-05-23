@@ -22,7 +22,6 @@ const Track = () => {
       setTrack(data.track);
       setAudioAnalysis(data.audioAnalysis);
       setAudioFeatures(data.audioFeatures);
-      console.log(data.track);
     };
     catchErrors(fetchData());
   }, [trackID]);
@@ -32,7 +31,7 @@ const Track = () => {
     <section className="track_section">
       <div className="track_data_wrapper">
         <img src={track.album.images[0].url} alt="" />
-        <div className="track_info">
+        <div className="track_information">
           <h1>{track.name}</h1>
           <h2>
             {track.artists &&
@@ -56,7 +55,12 @@ const Track = () => {
             </a>{" "}
             &middot; {getYear(track.album.release_date)}
           </p>
-          <a className="green_button" href="">
+          <a
+            className="green_button"
+            href={track.external_urls.spotify}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Play on Spotify
           </a>
         </div>

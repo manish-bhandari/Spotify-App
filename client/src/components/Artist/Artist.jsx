@@ -14,7 +14,6 @@ const Artist = () => {
     const fetchData = async () => {
       const artistInfo = await getArtistInfo(id);
       setArtist(artistInfo.data);
-      console.log(artistInfo.data);
     };
 
     catchErrors(fetchData());
