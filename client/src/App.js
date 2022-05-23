@@ -1,10 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
-import styled from "styled-components/macro";
 import { useEffect, useState } from "react";
 import { accessToken, logout, getCurrentUserProfile } from "./spotify";
-import axios from "axios";
-import { catchErrors } from "./utils";
 import {
   BrowserRouter as Router,
   Routes,
