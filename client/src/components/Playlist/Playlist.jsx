@@ -45,7 +45,7 @@ const Playlist = () => {
       catchErrors(fetchData());
     }, [playlist]);
 
-    if (!playlist || !tracks || !audioFeatures) return <Loader />;
+    if (!playlist || !tracks || !audioFeatures) return <h1>loading</h1>;
     
   return (
     <section className="playlist_section">

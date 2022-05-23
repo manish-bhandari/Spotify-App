@@ -20,7 +20,7 @@ const Recent = () => {
         catchErrors(fetchData());
       }, []);
 
-      if (!recentTracks) return <Loader />;
+      if (!recentTracks) return;
 
   return (
     <section className="recent_section">

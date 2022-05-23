@@ -18,7 +18,7 @@ const Playlists = () => {
     catchErrors(fetchData());
   }, []);
 
-  if (!playlists) return <Loader />;
+  if (!playlists) return <h1>loading</h1>;
 
   return (
     <section className="playlists_section">
