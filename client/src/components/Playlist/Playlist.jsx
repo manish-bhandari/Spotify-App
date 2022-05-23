@@ -57,7 +57,7 @@ const Playlist = () => {
         <h1>{playlist.name}</h1>
         <p className="playlist_owner">By {playlist.owner.display_name}</p>
         <p className="playlist_num_tracks">{playlist.tracks.total} tracks</p>
-        <Link to="/">GET RECCOMMENDATIONS</Link>
+        <Link className="green_button" to={`/recommendations/${playlist.id}`}>GET RECCOMMENDATIONS</Link>
         <div className="audio_features">
           <FeatureChart
             features={audioFeatures.audio_features}

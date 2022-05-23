@@ -39,7 +39,7 @@
     height: auto;
 }
 
-.playlist_left a{
+.green_button{
     display: inline-block;
     background-color: rgb(29, 185, 84);
     color: rgb(255, 255, 255);
@@ -54,7 +54,7 @@
     transition: all 0.25s cubic-bezier(0.3, 0, 0.4, 1) 0s;
 }
 
-.playlist_left a:hover{
+.green_button:hover{
     background-color: rgb(67, 216, 119);
 }
 

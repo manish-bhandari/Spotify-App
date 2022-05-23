@@ -214,8 +214,8 @@ export const getUserInfo = () =>
       getCurrentUserProfile(),
       getFollowedArtists(),
       getCurrentUserPlaylists(),
-      getTopArtists(50,"long-term"),
-      getTopTracks(50,'long-term'),
+      getTopArtists(50,"long_term"),
+      getTopTracks(50,'long_term'),
     ])
     .then(
       axios.spread(

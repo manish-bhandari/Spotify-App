@@ -1,0 +1,33 @@
+.recommendations_section {
+  padding: 80px;
+  width: 100%;
+}
+
+.recommendations_section * {
+  margin: 0;
+}
+
+.recommend_header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+}
+.recommend_header a {
+  margin: 0;
+}
+
+.recommend_header span {
+  color: var(--green);
+}
+
+.recommended_tracks {
+  margin-top: 60px;
+}
+
+.subtitle_wrapper p{
+    text-align: left;
+    font-size: 14px;
+
+}

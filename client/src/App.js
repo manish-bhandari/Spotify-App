@@ -13,6 +13,7 @@ import {
   useLocation,
 } from "react-router-dom";
 
+import Recommendations from "./components/Recommendations/Recommendations";
 import Navbar from "./components/Navbar/Navbar";
 import Login from "./components/Login/Login";
 import Profile from "./components/Profile/Profile";
@@ -22,6 +23,7 @@ import Recent from "./components/Recent/Recent";
 import Playlists from "./components/Playlists/Playlists";
 import Artist from "./components/Artist/Artist";
 import Playlist from "./components/Playlist/Playlist";
+import Track from "./components/Track/Track";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -60,6 +62,9 @@ const Section = ({profile}) => {
           <Route path="/artist/:id" element={<Artist />} />
           <Route path="/playlist/:id" element={<Playlist />} />
           <Route path="/playlists" element={<Playlists />} />
+          <Route path="/track/:id" element={<Track />} />
+          <Route path="/recommendations/:id" element={<Recommendations />} />
+
           <Route
             path="/"
             element={<Profile logout={logout} profile={profile} />}
