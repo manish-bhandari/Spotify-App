@@ -121,12 +121,13 @@ app.get("/refresh_token", (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
-  console.log(`Express listening at https://localhost:${PORT}/`);
-});
-
 
 // All remaining requests return the React app, so it can handle routing.
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
 });
+
+app.listen(PORT, () => {
+  console.log(`Express listening at https://localhost:${PORT}/`);
+});
+
