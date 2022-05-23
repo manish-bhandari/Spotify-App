@@ -5,7 +5,7 @@ import { getPlaylistInfo } from '../../spotify';
 import Loader from '../Loader';
 import TrackList from '../TrackList/TrackList';
 import { Link } from 'react-router-dom';
-// import FeatureChart from '../FeatureChart';
+import FeatureChart from '../FeatureChart';
 import { getAudioFeaturesForTracks } from '../../spotify';
 
 
