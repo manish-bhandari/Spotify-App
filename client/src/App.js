@@ -43,10 +43,12 @@ function App() {
   },[])
   
   return (
-    <div className="App">
-      {console.log("got inside app")}
-      {!token ? <Login /> : <Section />}
-    </div>
+    <Router>
+      <div className="App">
+        {console.log("got inside app")}
+        {!token ? <Login /> : <Section />}
+      </div>
+    </Router>
   );
 }
 
@@ -54,7 +56,6 @@ const Section = () => {
   return (
     <div className="App-container">
       {console.log("got inside app container")}
-      <Router>
         <ScrollToTop />
         <Navbar />
         <Routes>
@@ -68,7 +69,6 @@ const Section = () => {
           <Route path="/recommendations/:id" element={<Recommendations />} />
           <Route path="/" element={<Profile logout={logout} />} />
         </Routes>
-      </Router>
     </div>
   );
 };

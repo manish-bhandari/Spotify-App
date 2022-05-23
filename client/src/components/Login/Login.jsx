@@ -33,6 +33,7 @@ const Login = () => {
       <StyledLoginButton className="App-link" href={LOGIN_URI}>
         Log in to Spotify
       </StyledLoginButton>
+      {console.log("got inside login")}
     </section>
   );
 }
