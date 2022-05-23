@@ -149,3 +149,97 @@ export const getTopTracks = (limit = 10, range="long_term") =>
 
 
 export const getRecentlyPlayedTracks = () => axios.get("/me/player/recently-played");
+
+
+export const getArtistInfo = (id) => axios.get(`/artists/${id}`);
+
+export const getPlaylistInfo = (id) => axios.get(`/playlists/${id}`);
+
+
+/**
+ * Return a comma separated string of track IDs from the given array of tracks
+ */
+const getTrackIds = tracks => tracks.map(({ track }) => track.id).join(',');
+
+/**
+ * Get Audio Features for Several Tracks
+ * https://developer.spotify.com/documentation/web-api/reference/tracks/get-several-audio-features/
+ */
+export const getAudioFeaturesForTracks = (tracks) => {
+  const ids = getTrackIds(tracks);
+  return axios.get(`/audio-features?ids=${ids}`);
+};
+
+/**
+ * Get Recommendations Based on Seeds
+ * https://developer.spotify.com/documentation/web-api/reference/browse/get-recommendations/
+ */
+export const getRecommendationsForTracks = tracks => {
+  const shuffledTracks = tracks.sort(() => 0.5 - Math.random());
+  const seed_tracks = getTrackIds(shuffledTracks.slice(0, 5));
+  const seed_artists = '';
+  const seed_genres = '';
+
+  return axios.get(
+    `/recommendations?seed_tracks=${seed_tracks}&seed_artists=${seed_artists}&seed_genres=${seed_genres}`);
+};
+
+
+/**
+ * Get Audio Analysis for a Track
+ * https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-analysis/
+ */
+export const getTrackAudioAnalysis = trackId =>
+  axios.get(`/audio-analysis/${trackId}`);
+
+
+/**
+ * Get Audio Features for a Track
+ * https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/
+ */
+export const getTrackAudioFeatures = trackId =>
+  axios.get(`/audio-features/${trackId}`);
+
+
+/**
+ * Get a Track
+ * https://developer.spotify.com/documentation/web-api/reference/tracks/get-track/
+ */
+export const getTrack = trackId =>
+  axios.get(`/tracks/${trackId}`);
+
+export const getUserInfo = () =>
+  axios
+    .all([
+      getCurrentUserProfile(),
+      getFollowedArtists(),
+      getCurrentUserPlaylists(),
+      getTopArtists(50,"long-term"),
+      getTopTracks(50,'long-term'),
+    ])
+    .then(
+      axios.spread(
+        (user, followedArtists, playlists, topArtists, topTracks) => ({
+          user: user.data,
+          followedArtists: followedArtists.data,
+          playlists: playlists.data,
+          topArtists: topArtists.data,
+          topTracks: topTracks.data,
+        })
+      )
+    );
+
+export const getTrackInfo = (trackId) =>
+  axios
+    .all([
+      getTrack(trackId),
+      getTrackAudioAnalysis(trackId),
+      getTrackAudioFeatures(trackId),
+    ])
+    .then(
+      axios.spread((track, audioAnalysis, audioFeatures) => ({
+        track: track.data,
+        audioAnalysis: audioAnalysis.data,
+        audioFeatures: audioFeatures.data,
+      }))
+    );

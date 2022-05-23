@@ -13,7 +13,7 @@ const TopArtists = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const userTopArtists = await getTopArtists(10, activeRange);
+      const userTopArtists = await getTopArtists(20, activeRange);
       setTopArtists(userTopArtists.data);
       console.log(userTopArtists.data);
     };

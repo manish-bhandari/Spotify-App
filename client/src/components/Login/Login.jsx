@@ -16,7 +16,7 @@ const StyledLoginButton = styled.a`
   text-align: center;
 
   &:hover {
-    background-color: rgb(50, 201, 103);
+    background-color: rgb(67, 216, 119);
   }
 `;
 

@@ -20,6 +20,8 @@ import TopArtists from "./components/TopArtists/TopArtists";
 import TopTracks from "./components/TopTracks/TopTracks";
 import Recent from "./components/Recent/Recent";
 import Playlists from "./components/Playlists/Playlists";
+import Artist from "./components/Artist/Artist";
+import Playlist from "./components/Playlist/Playlist";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -55,7 +57,8 @@ const Section = ({profile}) => {
           <Route path="/top-artists" element={<TopArtists />} />
           <Route path="/top-tracks" element={<TopTracks />} />
           <Route path="/recent" element={<Recent />} />
-          <Route path="/playlists/:id" element={<h1>Playlist</h1>} />
+          <Route path="/artist/:id" element={<Artist />} />
+          <Route path="/playlist/:id" element={<Playlist />} />
           <Route path="/playlists" element={<Playlists />} />
           <Route
             path="/"

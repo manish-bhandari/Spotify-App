@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { ReactComponent as InfoIcon } from "../../icons/info.svg";
 import { formatDuration } from "../../utils";
 import {default as Loader} from "../Loader";
+import TrackList from "../TrackList/TrackList";
 
 const TopTracks = () => {
     const [topTracks, setTopTracks] = useState(null);
@@ -14,9 +15,12 @@ const TopTracks = () => {
 
     useEffect(() => {
       const fetchData = async () => {
-        const userTopTracks = await getTopTracks(10, activeRange);
+        const userTopTracks = await getTopTracks(20, activeRange);
         setTopTracks(userTopTracks.data);
+        console.log(userTopTracks.data);
+
       };
+
 
       catchErrors(fetchData());
     }, [activeRange]);
@@ -47,43 +51,7 @@ const TopTracks = () => {
           </div>
         </div>
       </div>
-      <div className="preview_list_container">
-        <ul className="preview_list">
-          {topTracks.items.map((track, idx) => (
-            <Link to={`/track/${track.id}`} key={idx}>
-              <div className="preview_image_wrapper">
-                <img
-                  className="preview_image track"
-                  src={track.album.images[0].url}
-                  alt=""
-                />
-                <div className="info_svg">
-                  <InfoIcon />
-                </div>
-              </div>
-
-              <div className="track_info">
-                <div className="track_details">
-                  <p>{track.name}</p>
-                  <span className="track_artists">
-                    {track.artists.map((artist, i) => (
-                      <span key={i}>
-                        {artist.name}
-                        {i !== track.artists.length - 1 && ", "}
-                      </span>
-                    ))}
-                    {"  ·  "}
-                    <span>{track.album.name}</span>
-                  </span>
-                </div>
-                <span className="track_time">
-                  {formatDuration(track.duration_ms)}
-                </span>
-              </div>
-            </Link>
-          ))}
-        </ul>
-      </div>
+      <TrackList tracks={topTracks.items}/>
     </section>
   );
 };
