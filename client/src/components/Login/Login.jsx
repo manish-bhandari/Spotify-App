@@ -2,6 +2,12 @@ import React from 'react'
 import styled from 'styled-components';
 import './Login.css'
 
+const LOGIN_URI =
+  process.env.NODE_ENV !== "production"
+    ? "http://localhost:8888/login"
+    : "https://spotify-profile-visualizer-app.herokuapp.com/login";
+    
+    
 const StyledLoginButton = styled.a`
   background-color: var(--green);
   display: inline-block;
@@ -24,10 +30,7 @@ const Login = () => {
   return (
     <section className="login_section">
       <h1>Spotify Profile</h1>
-      <StyledLoginButton
-        className="App-link"
-        href="http://localhost:8888/login"
-      >
+      <StyledLoginButton className="App-link" href={LOGIN_URI}>
         Log in to Spotify
       </StyledLoginButton>
     </section>
