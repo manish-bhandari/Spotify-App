@@ -44,6 +44,7 @@ function App() {
   
   return (
     <div className="App">
+      {console.log("got inside app")}
       {!token ? <Login /> : <Section />}
     </div>
   );
@@ -52,6 +53,7 @@ function App() {
 const Section = () => {
   return (
     <div className="App-container">
+      {console.log("got inside app container")}
       <Router>
         <ScrollToTop />
         <Navbar />
@@ -64,10 +66,7 @@ const Section = () => {
           <Route path="/playlists" element={<Playlists />} />
           <Route path="/track/:id" element={<Track />} />
           <Route path="/recommendations/:id" element={<Recommendations />} />
-          <Route
-            path="/"
-            element={<Profile logout={logout} />}
-          />
+          <Route path="/" element={<Profile logout={logout} />} />
         </Routes>
       </Router>
     </div>
