@@ -49,7 +49,7 @@ function App() {
   );
 }
 
-const Section = ({profile}) => {
+const Section = () => {
   return (
     <div className="App-container">
       <Router>
@@ -64,10 +64,9 @@ const Section = ({profile}) => {
           <Route path="/playlists" element={<Playlists />} />
           <Route path="/track/:id" element={<Track />} />
           <Route path="/recommendations/:id" element={<Recommendations />} />
-
           <Route
             path="/"
-            element={<Profile logout={logout} profile={profile} />}
+            element={<Profile logout={logout} />}
           />
         </Routes>
       </Router>
