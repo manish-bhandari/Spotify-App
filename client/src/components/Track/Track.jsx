@@ -6,7 +6,7 @@ import { getTrackInfo } from "../../spotify";
 import './Track.css'
 import { formatDuration } from "../../utils";
 import { parsePitchClass } from "../../utils";
-import FeatureChart from "../FeatureChart";
+// import FeatureChart from "../FeatureChart";
 
 const Track = () => {
   const url = window.location.pathname;
@@ -110,7 +110,7 @@ const Track = () => {
             </div>
           </div>
           <div className="feature_chart">
-            <FeatureChart features={audioFeatures} type="" />
+            {/* <FeatureChart features={audioFeatures} type="" /> */}
           </div>
         </div>
       </div>

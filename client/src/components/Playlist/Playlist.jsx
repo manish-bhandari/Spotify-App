@@ -5,7 +5,7 @@ import { getPlaylistInfo } from '../../spotify';
 import Loader from '../Loader';
 import TrackList from '../TrackList/TrackList';
 import { Link } from 'react-router-dom';
-import FeatureChart from '../FeatureChart';
+// import FeatureChart from '../FeatureChart';
 import { getAudioFeaturesForTracks } from '../../spotify';
 
 
@@ -56,10 +56,10 @@ const Playlist = () => {
         <p className="playlist_num_tracks">{playlist.tracks.total} tracks</p>
         <Link className="green_button" to={`/recommendations/${playlist.id}`}>GET RECOMMENDATIONS</Link>
         <div className="audio_features">
-          <FeatureChart
+          {/* <FeatureChart
             features={audioFeatures.audio_features}
             type="horizontalBar"
-          />
+          /> */}
         </div>
       </div>
       <div className="playlist_right">
